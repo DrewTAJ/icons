@@ -35,7 +35,10 @@ grilly = {
     # },
     "qualities": ["Transformed", "Always trying to sell stuff"],
     "equipment": ["Trench coat"],
-    "notes": []
+    "notes": [
+        "This is a note that does note like things and is followed by another note and can do note things and more more more more...",
+        "This is a note that is followed by the previous note and also does note like things and will help test the application."
+    ]
 }
 
 def getCharacter():
