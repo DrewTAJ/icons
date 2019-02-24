@@ -3,11 +3,15 @@
 {% block content %}
 <div class="container">
 <form action="/send" method="post">
+    <input name=_csrf_token type=hidden value="{{ csrf_token() }}">
     <div class="form-group">
         <label for="email">Email: </label>
-        <input type="email" class="form-control" name="email" id="email" placeholder="Email" />
+        <input type="email" class="form-control" name="email" id="email" placeholder="Email" required />
     </div>
     <input class="btn btn-primary" type="submit" value="Submit" />
 </form>
+{% if error %}
+<div class="alert alert-danger" role="alert">{{ error }}</div>
+{% endif %}
 </div>
 {% endblock %}
