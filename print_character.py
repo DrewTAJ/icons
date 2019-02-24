@@ -4,7 +4,10 @@ from PIL import Image, ImageDraw, ImageFont
 
 def print_character(character):
     img = Image.open("page-1.png")
-    d = ImageDraw.Draw(img)
+    img_width, img_height = img.size
+    img_copy = Image.new("RGBA", img.size)
+    img_copy.paste(img, (0, 0,), img)
+    d = ImageDraw.Draw(img_copy)
     font = ImageFont.truetype("Roboto/Roboto-Regular.ttf", size=28)
 
     d.text((250, 80), character["name"], fill="black", font=font) # Name
@@ -28,30 +31,20 @@ def print_character(character):
         character["stats"]["awareness"],
         character["stats"]["willpower"]
     ]
-
     stat_start_y = 192
-
     stat_font = ImageFont.truetype("Roboto/Roboto-Regular.ttf", size=38)
-
     draw_stats(d, stat_start_y, stats, stat_font)
-
     other_stats = [character["stamina"], character["determination"]]
-
     other_start_y = 442
     draw_stats(d, other_start_y, other_stats, stat_font)
-
     draw_qualities(d, character["qualities"], font)
-
-
     draw_notes(d, character["notes"], font)
-
-    img_width, img_height = img.size
-
     d.rectangle([(0, img_height - 30), (200, img_height)], fill="white")
-    
-    img.show()
 
-    return img
+    if img_copy.mode == 'RGBA':
+        img_copy = img_copy.convert('RGB')
+    
+    return img_copy
 
 def get_multiline_text(text, max_width, text_font):
     split_text = text.split(" ")

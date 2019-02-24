@@ -33,7 +33,7 @@ grilly = {
     #     "qualities": ["Transformed"],
     #     "challenged": []
     # },
-    "qualities": ["Transformed", "Always trying to sell stuff"],
+    "qualities": ["Transformed", "Always trying to sell stuff", "Health: 11", "Improviser", "Does not plan ahead"],
     "equipment": ["Trench coat"],
     "notes": [
         "This is a note that does note like things and is followed by another note and can do note things and more more more more...",

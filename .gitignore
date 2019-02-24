@@ -14,3 +14,10 @@ Roboto/Roboto-Medium.ttf
 Roboto/Roboto-MediumItalic.ttf
 Roboto/Roboto-Thin.ttf
 Roboto/Roboto-ThinItalic.ttf
+__pycache__
+creds.json
+credentials.auth.py
+env/
+venv/
+character.pdf
+characters
